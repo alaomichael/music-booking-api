@@ -10,6 +10,10 @@ class BookingService {
         if (!booking) throw new Error('Booking not found');
         return booking;
     }
+    
+    static async getBookings() {
+        return await Booking.findAll();
+    }
 }
 
 module.exports = BookingService;

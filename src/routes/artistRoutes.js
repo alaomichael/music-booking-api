@@ -4,6 +4,6 @@ const artistController = require('../controllers/artistController');
 const auth = require('../middleware/auth');
 
 router.post('/', auth, artistController.createArtist);
-router.get('/', artistController.getArtists);
+router.get('/', auth, artistController.getArtists);
 
 module.exports = router;

@@ -21,3 +21,15 @@ exports.updateBooking = async (req, res) => {
         res.status(error.message === 'Booking not found' ? 404 : 500).json({ error: error.message });
     }
 };
+
+
+
+exports.getBookings = async (req, res) => {
+    try {
+        const bookings = await BookingService.getBookings();
+        res.status(200).json(bookings);
+    } catch (error) {
+        console.log("Error message", error);
+        res.status(500).json({ error: 'Failed to retrieve bookings' });
+    }
+};

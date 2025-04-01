@@ -4,6 +4,6 @@ const eventController = require('../controllers/eventController');
 const auth = require('../middleware/auth');
 
 router.post('/', auth, eventController.createEvent);
-router.get('/', eventController.getEvents);
+router.get('/', auth, eventController.getEvents);
 
 module.exports = router;

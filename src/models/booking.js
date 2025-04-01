@@ -19,6 +19,12 @@ class Booking {
         const { rows } = await pool.query(query, values);
         return rows[0];
     }
+
+    static async findAll() {
+        const query = 'SELECT * FROM bookings;';
+        const { rows } = await pool.query(query);
+        return rows;
+    }
 }
 
 module.exports = Booking;
