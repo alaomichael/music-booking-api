@@ -73,7 +73,7 @@ To set up and run the Music Booking API, follow these steps:
      ```bash
      npm start
      ```
-   - The server will run on port 3000 (or the port specified in `.env`). In Codespaces, it will be accessible via a public URL (e.g., `https://stunning-space-disco-q9pqg5jr4pc97r-3000.app.github.dev`).
+   - The server will run on port 3000 (or the port specified in `.env`). In Render, it will be accessible via a public URL (e.g., `https://music-booking-api-qfhu.onrender.com`) and in Codespaces, it will be accessible via a public URL (e.g., `https://stunning-space-disco-q9pqg5jr4pc97r-3000.app.github.dev`).
 
 ## Endpoints
 
@@ -161,7 +161,7 @@ The API provides the following endpoints for managing users, artists, events, an
 
 - **Manual Testing with Postman**:
   - A Postman collection (`docs/postman_collection.json`) is provided for testing all endpoints.
-  - Import the collection into Postman and set the `baseUrl` environment variable to the deployed URL (e.g., `https://stunning-space-disco-q9pqg5jr4pc97r-3000.app.github.dev`).
+  - Import the collection into Postman and set the `baseUrl` environment variable to the deployed URL (e.g.,`https://music-booking-api-qfhu.onrender.com`, `https://stunning-space-disco-q9pqg5jr4pc97r-3000.app.github.dev`).
   - Follow the order of requests (register, login, then test protected endpoints with the obtained JWT).
 
 - **Automated Testing (Optional)**:
@@ -174,7 +174,7 @@ The API provides the following endpoints for managing users, artists, events, an
 ## Deployment Notes
 
 - **GitHub Codespaces**:
-  - The API is deployed on GitHub Codespaces, accessible via a public URL (e.g., `https://stunning-space-disco-q9pqg5jr4pc97r-3000.app.github.dev`).
+  - The API is deployed on GitHub Codespaces, accessible via a public URL (e.g.,`https://music-booking-api-qfhu.onrender.com`, `https://stunning-space-disco-q9pqg5jr4pc97r-3000.app.github.dev`).
   - Codespaces IPs may change; update the Aiven IP whitelist if connection errors occur.
 
 - **Aiven PostgreSQL**:
