@@ -113,7 +113,7 @@ The API provides the following endpoints for managing users, artists, events, an
       }
       ```
     - **Response**: `201 Created`, `{ "id": "<UUID>", "name": "Jazz Star", ... }`
-  - `GET /api/artists`: List all artists.
+  - `GET /api/artists`: List all artists (requires JWT).
     - **Response**: `200 OK`, Array of artists.
 
 - **Events**:
@@ -130,7 +130,7 @@ The API provides the following endpoints for managing users, artists, events, an
       }
       ```
     - **Response**: `201 Created`, `{ "id": "<UUID>", "artist_id": "<UUID>", ... }`
-  - `GET /api/events`: List all events.
+  - `GET /api/events`: List all events (requires JWT).
     - **Response**: `200 OK`, Array of events.
 
 - **Bookings**:
@@ -154,6 +154,8 @@ The API provides the following endpoints for managing users, artists, events, an
       }
       ```
     - **Response**: `200 OK`, Updated booking object.
+  - `GET /api/bookings`: List all bookings (requires JWT).
+    - **Response**: `200 OK`, Array of bookings.
 
 ## Testing
 
