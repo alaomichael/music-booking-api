@@ -165,12 +165,6 @@ The API provides the following endpoints for managing users, artists, events, an
   - Run the collection in the following order: Register → Login → Create Artist → List Artists → Create Event → List Events → Create Booking → Update Booking.
   - The collection includes test scripts to validate responses and save variables (e.g., `authToken`, `artistId`) for subsequent requests.  
 
-- **Automated Testing (Optional)**:
-  - Unit tests for the service layer can be run using Jest:
-    ```bash
-    npm test
-    ```
-  - Ensure Jest is installed (`npm install --save-dev jest`).
 
 ## Deployment Notes
 
