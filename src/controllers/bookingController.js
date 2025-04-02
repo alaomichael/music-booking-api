@@ -18,7 +18,7 @@ exports.updateBooking = async (req, res) => {
         const booking = await BookingService.updateBooking(id, status);
         res.status(200).json(booking);
     } catch (error) {
-        res.status(error.message === 'Booking not found' ? 404 : 500).json({ error: error.message });
+        res.status(error.message === 'Booking not found' ? 404 : 400).json({ error: error.message });
     }
 };
 

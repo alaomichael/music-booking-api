@@ -161,8 +161,9 @@ The API provides the following endpoints for managing users, artists, events, an
 
 - **Manual Testing with Postman**:
   - A Postman collection (`docs/postman_collection.json`) is provided for testing all endpoints.
-  - Import the collection into Postman and set the `baseUrl` environment variable to the deployed URL (e.g.,`https://music-booking-api-qfhu.onrender.com`, `https://stunning-space-disco-q9pqg5jr4pc97r-3000.app.github.dev`).
-  - Follow the order of requests (register, login, then test protected endpoints with the obtained JWT).
+  - Import the collection into Postman and create an environment with a `baseUrl` variable set to the deployed URL (e.g.,`https://music-booking-api-qfhu.onrender.com`, `https://stunning-space-disco-q9pqg5jr4pc97r-3000.app.github.dev`).
+  - Run the collection in the following order: Register → Login → Create Artist → List Artists → Create Event → List Events → Create Booking → Update Booking.
+  - The collection includes test scripts to validate responses and save variables (e.g., `authToken`, `artistId`) for subsequent requests.  
 
 - **Automated Testing (Optional)**:
   - Unit tests for the service layer can be run using Jest:
