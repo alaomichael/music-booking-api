@@ -12,10 +12,10 @@ class EventService {
     }
 
     static async getEvents() {
-        // return await Event.findAll();
         const result = await Event.findAll();
+        console.log("Result ", result);
         // Convert ticket_price to a number for all events
-        return result.rows.map(event => ({
+        return result.map(event => ({
             ...event,
             ticket_price: parseFloat(event.ticket_price)
         }));

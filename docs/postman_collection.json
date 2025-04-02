@@ -1,0 +1,1975 @@
+{
+	"info": {
+		"_postman_id": "1ede167f-7cfe-4974-8293-a9c480b004e6",
+		"name": "Music Booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17846223",
+		"_collection_link": "https://leomaxinternational.postman.co/workspace/My-Workspace~8a3732cf-7f9b-4a56-829c-d6b14275a907/collection/17846223-1ede167f-7cfe-4974-8293-a9c480b004e6?action=share&source=collection_link&creator=17846223"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 400\", function () {",
+									"    pm.expect(pm.response.code).to.equal(400);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.error).to.exist.and.to.be.a('string');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Error message should not be empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.error).to.exist.and.to.not.be.empty;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is 'application/json'\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include('application/json');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Verify that the response does not contain any sensitive information\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.error).to.exist.and.to.be.a('string');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test@example.com\",\r\n    \"password\": \"password123\",\r\n    \"name\": \"Test User\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"test@example.com\",\r\n    \"password\": \"password123\",\r\n    \"name\": \"Test User\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 31 Mar 2025 23:40:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "131"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache,no-store"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"83-/vUBaJeVmTpvGwNyshHaADeav5A\""
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": ".Tunnels.Relay.WebForwarding.Cookies=CfDJ8Cs4yarcs6pKkdu0hlKHsZtM6wruehQveIYFAzgFdxO6jj-HABCCqlBPYnK_OgCkrYw--pWuYuyJuGblZ-f0LkS9vHyX0RQBuKK3BUtbqreo6CsVpeQDyZ-SLwiebmChnYtxcSJWQvnEBD0Hhjg3tX6VW5tybplLZum36iMhsq89qCpyxbCsFaOMSv3rekpeLaAuEq2EoFAlVs-0wFWwSqdYT1aq-R7mgU2Stxq5S0FxuiWNRMOyll87NwS_vjL6feOP7mgPHrmNdvZ0D_BLx7cFsHkQFm7oiVg_rz6aI_PclojeDOVFvRmdBXbTkQBSXNo3wAtrWv9OIYtBaRm9K_Z3kOFMrmfLipOCQGYHvj-3we7r_DuwMgfQLJWoD-VSqnS1_PFI4iWE0rzZo9-NxlAiolbVJz21LcS4pn6GZMJ-3aDDGmwDSah0FBZPWbKmVpX0mpE94P9DQST5mzSTGeBG5iyl9tUEi1-0J-_tdfpQH9rX7mPpLUUr0FraEgAI9N4PNpFkfqRsb0-EiJPKryLARsRKgMUug0hfExnQfuiEIz0CPnfPCB-7JqwWa30f_NZnWmY-K-IiE_l1R9SRrPFQRkaJo537dic4eIUXUTkGjm_vWT5VQtQHmIyMal47Z2t-GD4biONH__8i1xf6stQn61DRS2fXeNiEiAqOFhTNYwEQf-O8KHxk_gCrrPX0Xv02p3X17q5HGcasWpf8Uzu4hnmfIR-MTCIPSi_OiKwKkrK-lHfUEq36Y27Qf9LBNE7mDXTNMj0wgNNbOwH1FBKWiAcwrFOXO4Zwu2M4etj-UhaElkUKIUNDzDWMNBpCgjE-3LTyR0tpaO5Dl4wVJ_4Reu82_EishaZJ1ALqi9oW9sglSqNOqEDs9YeCgVSjqb4DiJ1xONr08G69hRIyb6lGc-2sAzxBKFXMNsDGQ43nB_mEP5FmPHOngfOupS8OAAIm57BHBwlURvVq8pHwoUUl52aNeOIs6J2aL-AQEXMs; path=/; secure; samesite=none"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "HttpRequestRatePerPort:1499"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "HttpRequestRatePerPort:54s"
+								},
+								{
+									"key": "X-Report-Abuse",
+									"value": "https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": "1500"
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": "1499"
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "1"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": ""
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "VsSaaS-Request-Id",
+									"value": "afd9b95a-f0b2-4f10-9d98-4fe5bf9e5826"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Served-By",
+									"value": "tunnels-prod-rel-uks1-v3-cluster"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"da1f7bbd-5187-46ec-85dc-1fabffd663a8\",\n    \"email\": \"test@example.com\",\n    \"name\": \"Test User\",\n    \"created_at\": \"2025-03-31T23:40:18.229Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields - token, user id, email, and name\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.token).to.exist;",
+									"    pm.expect(responseData.user.id).to.exist;",
+									"    pm.expect(responseData.user.email).to.exist;",
+									"    pm.expect(responseData.user.name).to.exist;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Email is in a valid format\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.user.email).to.be.a('string').and.to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Name is a non-empty string\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.be.an('object');",
+									"  pm.expect(responseData.user.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test@example.com\",\r\n    \"password\": \"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"test@example.com\",\r\n    \"password\": \"password123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 31 Mar 2025 23:46:15 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "334"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache,no-store"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14e-CRCUCP5Yp/oe/pWxpIlPoIcutyo\""
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": ".Tunnels.Relay.WebForwarding.Cookies=CfDJ8Cs4yarcs6pKkdu0hlKHsZs3FSYDvkDrcusLqy5_luVJae4VB1bobPKxQzWs6BpsIY1dZTQnnzcGlNbhlFiu2cMu5q6d3HQ9F73MoDWWLOZxpxpyIn8VE0yD6-Bl5ZyOdbSuiwF2z6fK-kNfH_fE1umrQtUyw-FWHHpdMEucW87Z66VB-K4aXsby6XF0hNTj7c_O-9IlJ_-Yz59T0k0ruG8245wQuyz_h1--2YI1yBiza-UtwxcQP95r22wf9GvXenA62SxISuFGYMCP02heKmqfgfDqVzK_ERscUZhcKq5Qe1iqYIgEXuNtoeMoT8o8bDxFh5IhkjG23p56k9XX2WdWrVXRjZh9nUpTcFTw0bdcVMUJFoAkbxfIL30qj4XTagKw4ymNlUV1GfbWGb9iOJpB0C0US0i03tJbfdYbR0-trRt_yjTEhk1cjTjhuPd2H1QA69g76a14yia6mtGBj-E6Dti8NsZjCkH6SUxhPfD_Pc9tdfPGSPVyC8LDwuOnXNc2CfP1dr-hZSi_5Usnc357tABboSWVCv70zrLXIokJbBwZuSiMM88fMSIqY-JgmUJzJGqC7KO-w_UNZLsxwGahaDtTrSTMirlack2E5KtLo0SvRdw6fQafQpq13QytsGMndPYmFvZe39EbD28SKs9c8HTPmywWx1nXHiuyEXkPfbDzTkjz9z9ZzHNbL7q6QDK7PPablaY3G1WaBT6DguyVPp2d95U-u9rSdx04_Fuj_lv8-JdvpuqoVv_d57qpQboNWhmGOUhyZ7kLXOcuMLNBqGVMOcnMVo9djwd3V3f0giwfgqQfVUihHrQxmXVnO9kO8slfMsPqj2WWIyg1vzlT7kZgMjXaYqwipp5eh7PZ8Sz3gcuczj1MXKNoMAiLmazCmiClMbS4Ax8v182x-3klgJl0R-dt7czEz0RQ40BbjII0yXmrPtBQRDTPlBzY9OxXIOgBqUn9Sb8QeuKe693ndL6HKGESHb-5Ty_bLfqP; path=/; secure; samesite=none"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "HttpRequestRatePerPort:1499"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "HttpRequestRatePerPort:35s"
+								},
+								{
+									"key": "X-Report-Abuse",
+									"value": "https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": "1500"
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": "1498"
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "2"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": "0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "VsSaaS-Request-Id",
+									"value": "e6f33e50-9c3b-4df7-af66-d0281bd05f8d"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Served-By",
+									"value": "tunnels-prod-rel-uks1-v3-cluster"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhMWY3YmJkLTUxODctNDZlYy04NWRjLTFmYWJmZmQ2NjNhOCIsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsImlhdCI6MTc0MzQ2NDc3NSwiZXhwIjoxNzQzNDc1NTc1fQ.-O2rUiyShAcRFTT5FNeLQxdp1h80WqWaagc4V2K0Mdw\",\n    \"user\": {\n        \"id\": \"da1f7bbd-5187-46ec-85dc-1fabffd663a8\",\n        \"email\": \"test@example.com\",\n        \"name\": \"Test User\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Artists",
+			"item": [
+				{
+					"name": "Artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 201\", function () {",
+									"    pm.expect(pm.response.code).to.equal(201);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.include.all.keys('id', 'name', 'bio', 'genre', 'contact_info', 'created_at', 'updated_at');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Name is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Contact_info is in a valid format\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.have.property('contact_info').that.is.a('string').and.matches(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/);",
+									"});",
+									"",
+									"",
+									"pm.test(\"created_at and updated_at are in valid date format\", () => {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData.created_at).to.be.a('string');",
+									"    pm.expect(new Date(jsonData.created_at).toISOString()).to.equal(jsonData.created_at);",
+									"    pm.expect(jsonData.updated_at).to.be.a('string');",
+									"    pm.expect(new Date(jsonData.updated_at).toISOString()).to.equal(jsonData.updated_at);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhMWY3YmJkLTUxODctNDZlYy04NWRjLTFmYWJmZmQ2NjNhOCIsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsImlhdCI6MTc0MzU1NzExNSwiZXhwIjoxNzQzNTY3OTE1fQ.mYBo2OxM4rwkzc8yJKy9vu6jljuiJm94gO545hkNPmg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Kelvin Clinton\",\r\n    \"bio\": \"Hip-hop artist\",\r\n    \"genre\": \"Hip-hop\",\r\n    \"contact_info\": \"kelvin_clinton@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/artists",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"artists"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Artist",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"bio\": \"Jazz artist\",\r\n    \"genre\": \"Jazz\",\r\n    \"contact_info\": \"john@example.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/artists",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"artists"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 31 Mar 2025 23:52:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "212"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache,no-store"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d4-p2bVCeqITgUl94kgw0RHya5x7jY\""
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": ".Tunnels.Relay.WebForwarding.Cookies=CfDJ8Cs4yarcs6pKkdu0hlKHsZuGs3OVIvHdeh4YO837eG_Apuk16e0sqJBHjnlFtXo1HNrw2D8DSW6R-aH8yC0mcnDfdGWAuAh4Kv7Emxr_W4nHLOTs5L7AdxZVtq6YkBh_OBd2E8ClPBAka_0hERgzaA8qyQUwexmijYfadIAXYl7Cy6JlbJq4_xkRZxODfmC8An9-I_gl0XGs38jRMp2AmTkMRTQz0_kEWVEk4XmeOh992tXqTq97p30hepLLltYjBlSDDp0pCBSLye_s29Qelw19XeWV8ky248XNDMahrewO66IZUOkdlMZkusc0eREbveCHLh7zXe0_JE2Zp2TCeLtfb18YVqZ0yHoXiOddcDH0lBHbuuShaABIAYhOhI0ykrTkIuJwf1b4g1JbEs5V2m7X2BEG0ywhe1x2C0w1j9WdChuQIw415AlnzHb1TX9tLPBby-jmXuUQCYxLl5SBHQut6r0BT5uk5ToXQsG8Qt34LSQ184ahV-EtzcXuW_5jyyDXCKWmqIZrzR4723mQ2y432ESh7JhFNnADIqk6LKX_Wn96qpR-Wh2pdq_vtjP5qMXJomH7_K0eNqrlsNIOvO9wF_Tza0XNU4szq1IYekXoVA0OtYA8Apwzo5Y4FTs0yIgOL2B_l7BJVewQ1tayihoTeB5IgC3SDwIBWn9BOJv49GDze8H6u0RNtXJDTnlAuvMVGMKq5Ol8fsJHY-BI744z0AXFTn7V9DqPPExmLGPpRW0aVcrMkZDt_3BcW0IAuFRLnOZty_ypjQDOaZLHCSYXAacZUvE_w13yc1g575gPDA78WRQWIH9R4pmfU4KYkstu2JQlp-Bfb_1Jjy0Pymv6W8mcM3TM4N7vTmQGhuLgB7N-EvoIuWD8yfi6-aIVWyxh4CP7v9LxTyQrIvVyZoLrXNPWJKv6DunWfRGmNXMyuWDvBum9Uh8B_-sSYWf0yAXZFsrAAA0I1wX_9RGLMFwn4WZdicpYai70SKnsXhUM; path=/; secure; samesite=none"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "HttpRequestRatePerPort:1499"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "HttpRequestRatePerPort:46s"
+								},
+								{
+									"key": "X-Report-Abuse",
+									"value": "https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": "1500"
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": "1497"
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "3"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": "0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "VsSaaS-Request-Id",
+									"value": "af1788df-579d-4433-8ddc-88f0e3cab22d"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Served-By",
+									"value": "tunnels-prod-rel-uks1-v3-cluster"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"f00e5f39-63cb-4e7e-85cf-03d018146285\",\n    \"name\": \"John Doe\",\n    \"bio\": \"Jazz artist\",\n    \"genre\": \"Jazz\",\n    \"contact_info\": \"john@example.com\",\n    \"created_at\": \"2025-03-31T23:52:32.400Z\",\n    \"updated_at\": \"2025-03-31T23:52:32.400Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Artists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    responseData.forEach(function(artist) {",
+									"        pm.expect(artist).to.have.property('id');",
+									"        pm.expect(artist).to.have.property('name');",
+									"        pm.expect(artist).to.have.property('bio');",
+									"        pm.expect(artist).to.have.property('genre');",
+									"        pm.expect(artist).to.have.property('contact_info');",
+									"        pm.expect(artist).to.have.property('created_at');",
+									"        pm.expect(artist).to.have.property('updated_at');",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Id is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    responseData.forEach(function(artist) {",
+									"        pm.expect(artist.id).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Id should not be empty\");",
+									"    });",
+									"",
+									"    pm.test(\"created_at and updated_at are in valid date format\", () => {",
+									"        const jsonData = pm.response.json();",
+									"        jsonData.forEach(artist => {",
+									"            pm.expect(artist.created_at).to.be.a('string');",
+									"            pm.expect(new Date(artist.created_at).toISOString()).to.equal(artist.created_at);",
+									"            pm.expect(artist.updated_at).to.be.a('string');",
+									"            pm.expect(new Date(artist.updated_at).toISOString()).to.equal(artist.updated_at);",
+									"        });",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Name is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    responseData.forEach(function(artist) {",
+									"        pm.expect(artist.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"Bio is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    responseData.forEach(function(artist) {",
+									"        pm.expect(artist.bio).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Bio should not be empty\");",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhMWY3YmJkLTUxODctNDZlYy04NWRjLTFmYWJmZmQ2NjNhOCIsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsImlhdCI6MTc0MzU1NzExNSwiZXhwIjoxNzQzNTY3OTE1fQ.mYBo2OxM4rwkzc8yJKy9vu6jljuiJm94gO545hkNPmg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"bio\": \"Jazz artist\",\r\n    \"genre\": \"Jazz\",\r\n    \"contact_info\": \"john@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/artists",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"artists"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Artist",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"bio\": \"Jazz artist\",\r\n    \"genre\": \"Jazz\",\r\n    \"contact_info\": \"john@example.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/artists",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"artists"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 01 Apr 2025 22:24:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "449"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c1-8Q1Ywgc9zfKblVNacG/TXjhWi5c\""
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "HttpRequestRatePerPort:1499"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "HttpRequestRatePerPort:28s"
+								},
+								{
+									"key": "X-Report-Abuse",
+									"value": "https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": ""
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": ""
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "1"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": ""
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "VsSaaS-Request-Id",
+									"value": "bdb6b168-156c-4248-b017-2303ee9f8f73"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Served-By",
+									"value": "tunnels-prod-rel-uks1-v3-cluster"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"f00e5f39-63cb-4e7e-85cf-03d018146285\",\n        \"name\": \"John Doe\",\n        \"bio\": \"Jazz artist\",\n        \"genre\": \"Jazz\",\n        \"contact_info\": \"john@example.com\",\n        \"created_at\": \"2025-03-31T23:52:32.400Z\",\n        \"updated_at\": \"2025-03-31T23:52:32.400Z\"\n    },\n    {\n        \"id\": \"1539f963-1120-49e6-95bf-516de8607ade\",\n        \"name\": \"Kelvin Clinton\",\n        \"bio\": \"Hip-hop artist\",\n        \"genre\": \"Hip-hop\",\n        \"contact_info\": \"kelvin_clinton@example.com\",\n        \"created_at\": \"2025-04-01T22:23:55.171Z\",\n        \"updated_at\": \"2025-04-01T22:23:55.171Z\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "Event",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 201\", function () {",
+									"  pm.expect(pm.response.code).to.equal(201);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.id).to.exist;",
+									"    pm.expect(responseData.artist_id).to.exist;",
+									"    pm.expect(responseData.title).to.exist;",
+									"    pm.expect(responseData.date).to.exist;",
+									"    pm.expect(responseData.venue).to.exist;",
+									"    pm.expect(responseData.ticket_price).to.exist;",
+									"    pm.expect(responseData.created_at).to.exist;",
+									"    pm.expect(responseData.updated_at).to.exist;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Date is in a valid date format\", () => {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData.date).to.be.a('string');",
+									"    pm.expect(new Date(jsonData.date).toISOString()).to.equal(jsonData.date);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Ticket price is a non-negative number\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.ticket_price).to.exist.and.to.be.a('number').and.to.be.at.least(0);",
+									"});",
+									"",
+									"",
+									"pm.test(\"created_at and updated_at are in valid date format\", () => {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData.created_at).to.be.a('string');",
+									"    pm.expect(new Date(jsonData.created_at).toISOString()).to.equal(jsonData.created_at);",
+									"    pm.expect(jsonData.updated_at).to.be.a('string');",
+									"    pm.expect(new Date(jsonData.updated_at).toISOString()).to.equal(jsonData.updated_at);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhMWY3YmJkLTUxODctNDZlYy04NWRjLTFmYWJmZmQ2NjNhOCIsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsImlhdCI6MTc0MzU1NzExNSwiZXhwIjoxNzQzNTY3OTE1fQ.mYBo2OxM4rwkzc8yJKy9vu6jljuiJm94gO545hkNPmg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"artist_id\": \"1539f963-1120-49e6-95bf-516de8607ade\",\r\n  \"title\": \"Hip-hop Star Concert\",\r\n  \"date\": \"2025-09-09T19:30:00Z\",\r\n  \"venue\": \"New Garden\",\r\n  \"ticket_price\": 40.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/events",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"events"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Event",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"artist_id\": \"f00e5f39-63cb-4e7e-85cf-03d018146285\",\r\n  \"title\": \"Jazz Concert\",\r\n  \"date\": \"2025-06-01T19:00:00Z\",\r\n  \"venue\": \"Downtown Arena\",\r\n  \"ticket_price\": 30.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"events"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 01 Apr 2025 22:30:01 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "281"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache,no-store"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"119-EzXFENU9v2ELFimVxiQjzkvTJuM\""
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": ".Tunnels.Relay.WebForwarding.Cookies=CfDJ8Cs4yarcs6pKkdu0hlKHsZsauwfpoBoNeCYs3UnNlDU0n5GW7-qSlpXJBxuqndwC0Euha4ZrvF8Z1NccCTLCn1JFsWxMpYtEZMpj5Dwn8fvMASo8R5I_D8Ph0dVQMj6U_D9dtavcyrG3kf1cDIvpJQEZEJZHMcb7MqeQQntMTh3YjN7en_Kk6n-iywc3PST7e-YvRZzr87dxPq_OP54pbftBNtJjzvtQ1E0U6_XQzbL01yiSCaNz3HL3Ys7YvB0vbxahvQFtNjJqyJS_efQKDlAc_JGOD085HI6Fc1Xdyi7vY2xAKaZIoMFC1GvUhqR5lSygjlhCoKMt0cT1gHbpzN8aYmCfUH4Mf_czNXtiEjG086pjJi5jPVLop03bX7WDoh9solNWAau0COZwYg_4C9DUNMC6BSU4PeDVlKUw7kW5Le3sjni1uttC1OFpUz08yXqsVuiE48Np83hsxhs_hfrLe7SviL5Mt4Vp1fyHzSEjmn9TwvxzRGS66kncQ4K0hOuG4UkpyMFWFiIIIyOkkOZzRgaSL3-hmC6VDt-8WofDp_9VD3lsIWYWeyYDJ_6JbJHALNBdJFtwocXweu0hri1BaOa5zoRZhKKuYg_BQ8UEYeobzkGKY68NtITwCvkXXuvWJiDZCVIWGU22HLLE-9CJNTHdq5si9KXLmRt1myN4iUflWw8vNlI8KksinOg8VvmUrX_lj_Ez4k1svSVns4-I7s4ELU5VdAp1qbdrI03WsHTcunOybTsyorpXL5a-llcyhQTKSplK4fCZEblZZqChLfMeXPTcX02UZD3kUocSSLPSel8HpVfsYPoPlCXZPZy_ZnXliKPqdiUShTLXH4bWXFi6ByYLWQGS2Pb74D-_iLS7TREWeiSZ7JdJXzuOE4fXTMOW80LppAWvBn_i0DsXetGK9gCJS4BmzXEoCYAKuUrtnl_zNMQgjoSKYfCtabTGUvZHrKwsA2EHW12LPbbZGEOqFXR67x_rL4OaMoKsTYVu1hjnMimVnl5iXNX9ZA; path=/; secure; samesite=none"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "HttpRequestRatePerPort:1499"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "HttpRequestRatePerPort:36s"
+								},
+								{
+									"key": "X-Report-Abuse",
+									"value": "https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": "1500"
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": "1498"
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "2"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": "0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "VsSaaS-Request-Id",
+									"value": "40bbee44-17c9-4a8d-ba24-883fe517ba2b"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Served-By",
+									"value": "tunnels-prod-rel-uks1-v3-cluster"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"385eac17-0309-4334-907d-ba816da8613d\",\n    \"artist_id\": \"f00e5f39-63cb-4e7e-85cf-03d018146285\",\n    \"title\": \"Jazz Concert\",\n    \"date\": \"2025-06-01T19:00:00.000Z\",\n    \"venue\": \"Downtown Arena\",\n    \"ticket_price\": \"30.00\",\n    \"created_at\": \"2025-04-01T22:30:01.499Z\",\n    \"updated_at\": \"2025-04-01T22:30:01.499Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Events",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"  ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    responseData.forEach(event => {",
+									"        pm.expect(event).to.have.property('id');",
+									"        pm.expect(event).to.have.property('artist_id');",
+									"        pm.expect(event).to.have.property('title');",
+									"        pm.expect(event).to.have.property('date');",
+									"        pm.expect(event).to.have.property('venue');",
+									"        pm.expect(event).to.have.property('ticket_price');",
+									"        pm.expect(event).to.have.property('created_at');",
+									"        pm.expect(event).to.have.property('updated_at');",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Date is in a valid date format\", () => {",
+									"    const jsonData = pm.response.json();",
+									"    if (Array.isArray(jsonData)) {",
+									"        jsonData.forEach(event => {",
+									"            pm.expect(event.date).to.be.a('string');",
+									"            pm.expect(new Date(event.date).toISOString()).to.equal(event.date);",
+									"        });",
+									"    }",
+									"});",
+									"",
+									"pm.test(\"Ticket price is a non-negative number\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    ",
+									"    responseData.forEach(function(event) {",
+									"        pm.expect(event.ticket_price).to.be.a('number').and.to.be.at.least(0);",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhMWY3YmJkLTUxODctNDZlYy04NWRjLTFmYWJmZmQ2NjNhOCIsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsImlhdCI6MTc0MzU1NzExNSwiZXhwIjoxNzQzNTY3OTE1fQ.mYBo2OxM4rwkzc8yJKy9vu6jljuiJm94gO545hkNPmg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"bio\": \"Jazz artist\",\r\n    \"genre\": \"Jazz\",\r\n    \"contact_info\": \"john@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/events",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"events"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Events",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"bio\": \"Jazz artist\",\r\n    \"genre\": \"Jazz\",\r\n    \"contact_info\": \"john@example.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"events"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 01 Apr 2025 22:32:44 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "567"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"237-/KLInIq2q67Folvz3N/1x5t8xlc\""
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "HttpRequestRatePerPort:1499"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "HttpRequestRatePerPort:54s"
+								},
+								{
+									"key": "X-Report-Abuse",
+									"value": "https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": ""
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": ""
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "1"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": ""
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "VsSaaS-Request-Id",
+									"value": "1bfa4738-91cb-4142-a4b9-1df4d5657df8"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Served-By",
+									"value": "tunnels-prod-rel-uks1-v3-cluster"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"385eac17-0309-4334-907d-ba816da8613d\",\n        \"artist_id\": \"f00e5f39-63cb-4e7e-85cf-03d018146285\",\n        \"title\": \"Jazz Concert\",\n        \"date\": \"2025-06-01T19:00:00.000Z\",\n        \"venue\": \"Downtown Arena\",\n        \"ticket_price\": \"30.00\",\n        \"created_at\": \"2025-04-01T22:30:01.499Z\",\n        \"updated_at\": \"2025-04-01T22:30:01.499Z\"\n    },\n    {\n        \"id\": \"06393b6e-ef4b-462a-a06e-c6feade1b2f7\",\n        \"artist_id\": \"1539f963-1120-49e6-95bf-516de8607ade\",\n        \"title\": \"Hip-hop Concert\",\n        \"date\": \"2025-07-04T15:30:00.000Z\",\n        \"venue\": \"Uptown Garden\",\n        \"ticket_price\": \"50.00\",\n        \"created_at\": \"2025-04-01T22:32:36.925Z\",\n        \"updated_at\": \"2025-04-01T22:32:36.925Z\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Bookings",
+			"item": [
+				{
+					"name": "Booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 201\", function () {",
+									"    pm.expect(pm.response.code).to.equal(201);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.id).to.exist;",
+									"    pm.expect(responseData.event_id).to.exist;",
+									"    pm.expect(responseData.user_id).to.exist;",
+									"    pm.expect(responseData.status).to.exist;",
+									"    pm.expect(responseData.payment_details).to.exist;",
+									"    pm.expect(responseData.created_at).to.exist;",
+									"    pm.expect(responseData.updated_at).to.exist;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Card in payment_details is in a valid format\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.payment_details.card).to.match(/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}/);",
+									"});",
+									"",
+									"pm.test(\"created_at and updated_at are in valid date format\", () => {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData.created_at).to.be.a('string');",
+									"    pm.expect(new Date(jsonData.created_at).toISOString()).to.equal(jsonData.created_at);",
+									"    pm.expect(jsonData.updated_at).to.be.a('string');",
+									"    pm.expect(new Date(jsonData.updated_at).toISOString()).to.equal(jsonData.updated_at);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Event_id and user_id are non-empty strings\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.be.an('object');",
+									"  pm.expect(responseData.event_id).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Event_id should not be empty\");",
+									"  pm.expect(responseData.user_id).to.be.a('string').and.to.have.lengthOf.at.least(1, \"User_id should not be empty\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhMWY3YmJkLTUxODctNDZlYy04NWRjLTFmYWJmZmQ2NjNhOCIsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsImlhdCI6MTc0MzU1NzExNSwiZXhwIjoxNzQzNTY3OTE1fQ.mYBo2OxM4rwkzc8yJKy9vu6jljuiJm94gO545hkNPmg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"event_id\": \"b14edabc-47cf-44f8-9655-bc54cf530703\",\r\n    \"status\": \"pending\",\r\n    \"payment_details\": {\r\n        \"card\": \"1234-5678-9012-3456\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/bookings",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"bookings"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Booking",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"event_id\": \"385eac17-0309-4334-907d-ba816da8613d\",\r\n  \"status\": \"pending\",\r\n  \"payment_details\": { \"card\": \"****-****-****-5678\" }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/bookings",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"bookings"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 01 Apr 2025 22:34:23 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "292"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache,no-store"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"124-uoSddhALq1gtZn83mA2tfxLXDNk\""
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": ".Tunnels.Relay.WebForwarding.Cookies=CfDJ8Cs4yarcs6pKkdu0hlKHsZtbJM_MYTuNOD36pVtQSkpwb6nFkiwjl50MfIs1GRkujcrCVKLy03vhpboECZlhHRUMPHjSeUvaeuBFd71TZtsay96XRU7GvLV7kxtVgG8NV-mN0_PXQk393LJQZ3i2pqNC_Wb0rA7QS4OVgA0CbTSRATEboa-jw3GKGvDE-ACEF8pplmHLJXqjCjTLr208oIuY3GgJTmuxMR5r0j9G1SMHt4OoCra3IHkkBTEQmmGV04nQWjdh-9AjIAXU01RZJPFWwbnRi1g2MP4F0NVlToMJ4f_sQMootTmGyzAYMX1piHUwzCl8jDtDuV9CTpvGzk9XAmLKX-vzvsZvPSw-JUPiH-pHoo41ucFBVpqQaaXiStYAi2AK05Qb4WENhtuoYGu57jnoHukl6AKa7rSKywVLD1Al0OPvou7f4IzoxcHQ96Z6RPdHz6fvhBpOie7H1UHVb23jAVyMR6EGsRAJdquKJXS8qFD9Sl0sFG6ilPEcF22U8CjN2zQkNdMlRbdbkWZikJ07ZHCjEs7-gSRKsG53ab2bTqX20ijk5Q_n_zyS7kjTJ-6-ff_NE2ZV2hrzb7tV--uIi3erEOhwj5x_uhxm8vf06SEO7lqp54WPj6UWJ1fEodZ4INAxa7D4gx_ppysKg-kgVIlVa8yQU-pISoJSXpS2zs3gnEwWLvblyYROO8hf1sZJ6ieFFh8k8oorn19A6vwK1NhuoS91PJL1nTnCHiyjMuCHopvLRvUfj6RKrXS1I7_ATxmmspFTPpjDR8o6e0qMDtaVBJhZlzwe5uYZ9CVJxK2mOa9TQO4DsGCqVdHPfHi2xYrY52l7KkwkkdPtiCqzShCAjercpIEjkwbud89OBObRbOlRvsa4wks7-e3Adc2NU2TZcQDbbvvf7J8GdQXoY531BA76CA80j96Jq0-F6-qgDAevFn7Q8-v9PsjkuGIt3Dto3xh8rwH_sQa0cU2KrgPwakTEb2NKrQkAJQPhlLT9Z18oBM1UM3SkAw; path=/; secure; samesite=none"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "HttpRequestRatePerPort:1499"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "HttpRequestRatePerPort:13s"
+								},
+								{
+									"key": "X-Report-Abuse",
+									"value": "https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": "1500"
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": "1498"
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "2"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": "0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "VsSaaS-Request-Id",
+									"value": "9a96765a-4f33-4be7-a22a-283b17893ee9"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Served-By",
+									"value": "tunnels-prod-rel-uks1-v3-cluster"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"a4b96c68-0aa5-4821-97c6-c4ea64b97757\",\n    \"event_id\": \"385eac17-0309-4334-907d-ba816da8613d\",\n    \"user_id\": \"da1f7bbd-5187-46ec-85dc-1fabffd663a8\",\n    \"status\": \"pending\",\n    \"payment_details\": {\n        \"card\": \"****-****-****-5678\"\n    },\n    \"created_at\": \"2025-04-01T22:34:23.734Z\",\n    \"updated_at\": \"2025-04-01T22:34:23.734Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.id).to.exist;",
+									"    pm.expect(responseData.event_id).to.exist;",
+									"    pm.expect(responseData.user_id).to.exist;",
+									"    pm.expect(responseData.status).to.exist;",
+									"    pm.expect(responseData.payment_details).to.exist;",
+									"    pm.expect(responseData.created_at).to.exist;",
+									"    pm.expect(responseData.updated_at).to.exist;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Card in payment_details is in a valid format\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.payment_details.card).to.match(/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}/);",
+									"});",
+									"",
+									"",
+									"pm.test(\"created_at and updated_at are in valid date format\", () => {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData.created_at).to.be.a('string');",
+									"    pm.expect(new Date(jsonData.created_at).toISOString()).to.equal(jsonData.created_at);",
+									"    pm.expect(jsonData.updated_at).to.be.a('string');",
+									"    pm.expect(new Date(jsonData.updated_at).toISOString()).to.equal(jsonData.updated_at);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Event_id and user_id are non-empty strings\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.be.an('object');",
+									"  pm.expect(responseData.event_id).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Event_id should not be empty\");",
+									"  pm.expect(responseData.user_id).to.be.a('string').and.to.have.lengthOf.at.least(1, \"User_id should not be empty\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhMWY3YmJkLTUxODctNDZlYy04NWRjLTFmYWJmZmQ2NjNhOCIsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsImlhdCI6MTc0MzU1NzExNSwiZXhwIjoxNzQzNTY3OTE1fQ.mYBo2OxM4rwkzc8yJKy9vu6jljuiJm94gO545hkNPmg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"confirmed\",\r\n    \"payment_details\": {\r\n        \"card\": \"1234-5678-9012-3456\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/bookings/:bookingId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"bookings",
+								":bookingId"
+							],
+							"variable": [
+								{
+									"key": "bookingId",
+									"value": "a4b96c68-0aa5-4821-97c6-c4ea64b97757"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Booking",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"confirmed\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/bookings/:bookingId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"bookings",
+										":bookingId"
+									],
+									"variable": [
+										{
+											"key": "bookingId",
+											"value": "a4b96c68-0aa5-4821-97c6-c4ea64b97757"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 01 Apr 2025 23:56:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "198"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"126-WzwGDbgS9o9OsASuITDuJpuha1Q\""
+								},
+								{
+									"key": "rndr-id",
+									"value": "541d8bb7-d01b-4ff2"
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "x-render-origin-server",
+									"value": "Render"
+								},
+								{
+									"key": "cf-cache-status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "929c0580cf47ef29-LHR"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"a4b96c68-0aa5-4821-97c6-c4ea64b97757\",\n    \"event_id\": \"385eac17-0309-4334-907d-ba816da8613d\",\n    \"user_id\": \"da1f7bbd-5187-46ec-85dc-1fabffd663a8\",\n    \"status\": \"confirmed\",\n    \"payment_details\": {\n        \"card\": \"****-****-****-5678\"\n    },\n    \"created_at\": \"2025-04-01T22:34:23.734Z\",\n    \"updated_at\": \"2025-04-01T22:34:23.734Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Bookings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    ",
+									"    responseData.forEach(function(booking) {",
+									"        pm.expect(booking).to.have.property('id');",
+									"        pm.expect(booking).to.have.property('event_id');",
+									"        pm.expect(booking).to.have.property('user_id');",
+									"        pm.expect(booking).to.have.property('status');",
+									"        pm.expect(booking).to.have.property('payment_details');",
+									"        pm.expect(booking).to.have.property('created_at');",
+									"        pm.expect(booking).to.have.property('updated_at');",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Payment details must contain the 'card' field\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    responseData.forEach(function(booking) {",
+									"        pm.expect(booking.payment_details.card).to.exist;",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"created_at and updated_at are in valid date format\", () => {",
+									"    const jsonData = pm.response.json();",
+									"    jsonData.forEach(artist => {",
+									"        pm.expect(artist.created_at).to.be.a('string');",
+									"        pm.expect(new Date(artist.created_at).toISOString()).to.equal(artist.created_at);",
+									"        pm.expect(artist.updated_at).to.be.a('string');",
+									"        pm.expect(new Date(artist.updated_at).toISOString()).to.equal(artist.updated_at);",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"User id and event id must be non-empty strings\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.be.an('array');",
+									"  responseData.forEach(function(item) {",
+									"    pm.expect(item.user_id).to.be.a('string').and.to.have.lengthOf.at.least(1, \"User id should not be empty\");",
+									"    pm.expect(item.event_id).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Event id should not be empty\");",
+									"  });",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhMWY3YmJkLTUxODctNDZlYy04NWRjLTFmYWJmZmQ2NjNhOCIsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsImlhdCI6MTc0MzU1NzExNSwiZXhwIjoxNzQzNTY3OTE1fQ.mYBo2OxM4rwkzc8yJKy9vu6jljuiJm94gO545hkNPmg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/bookings",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"bookings"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Bookings",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/bookings",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"bookings"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 01 Apr 2025 22:56:17 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "589"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache,no-store"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"24d-2nxVp8F9P02dVp46l8z5uiFcq0E\""
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": ".Tunnels.Relay.WebForwarding.Cookies=CfDJ8Cs4yarcs6pKkdu0hlKHsZv2nperLETADw-WaXhILssPId3DIEsFAazjR50o7NRJ6wwJXucJzYPWaDFz2fH-n0RttM75ItlS_PPCUJxA1oTtL29w2cYkzX-35SLGcLMnyd-wA14EkWPMIa05lZAYgn9og2Gnn1-WjMaVVMCX1qOfX6BFMCuunh8BQIQr2DjZ3THgcxGVuM7zaGz3nYW67d30fYAyK-K8yKjMoTl206GMJhsxTCn8WafQliUcFY3Jfh3sMiv3FCGlf9IWmlsmxQkMYqiuCaVrEi8pmac0V7fz_vygtCPXHlZriGSHQyAxy-_3O4YqS60M0gYUhgZ4jG7ShrNFLPPBQmxqO7ZkIqS2qnK4FVXFboJjbQuN7x_mLt4ZWiOSNaVI-oUms5bbc0gby0pjpA43-ONBGNK2WwUT5QMN6MP347CodQm0Z6N3dYKbz_0kz533oYZKnlZbSckGlLfDxt3FxoAk8Pisi2uBmcEGLxM8PLDy9Wt4p6SlCq7YWNi6wb_2qXuazgF8ZRpZgC4mqViEegaw3RGdyy9F_7ayReSNmsIDQHhn-8k12bI6reilEBaoErUZDfi5OZkc-7_IpW4FoB85diaSyjl9eKKGrsVzj3toz6pMfTLw1X-UyeHxAXBg8x9JIO1oHL5Jv7nFcmWy6K9RV2mjGVgoVUbgW6lbeBukX9fev3mFHQYyfsYk10XUwegcnDbbQ-6EMxENTKV9Fd0qOsrDsHM20smArohJYvJKc4dG8vUZkkmZI9GpJ2JI8WeOShCsnXluFYa01jstNJrk7e4izBgtYfjmLTGiyC_g6MIQboGXkGo57aiwOgl85X55E_HO9U8E3EQLKbJtpEOepF8a3W8mWSc_va17q6eu2lX0yKqFdy3kbuh9BbkUvDmXaC8abwRX6Sp-_uv0h2FJ3x7vh_ABmi3CHuqmViGl8OrLN-eZyXJ3ZyLGWI_bjHOeqGDBcL4eGrIQQi3mjybLy_XCKXATYFo9ZH_TF1JrWzklkj8P1Q; path=/; secure; samesite=none"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "HttpRequestRatePerPort:1499"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "HttpRequestRatePerPort:13s"
+								},
+								{
+									"key": "X-Report-Abuse",
+									"value": "https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": "1500"
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": "1498"
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "2"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": "0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "VsSaaS-Request-Id",
+									"value": "747cd67a-0abf-49ad-8907-e842b6e0e0c1"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Served-By",
+									"value": "tunnels-prod-rel-uks1-v3-cluster"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"a4b96c68-0aa5-4821-97c6-c4ea64b97757\",\n        \"event_id\": \"385eac17-0309-4334-907d-ba816da8613d\",\n        \"user_id\": \"da1f7bbd-5187-46ec-85dc-1fabffd663a8\",\n        \"status\": \"pending\",\n        \"payment_details\": {\n            \"card\": \"****-****-****-5678\"\n        },\n        \"created_at\": \"2025-04-01T22:34:23.734Z\",\n        \"updated_at\": \"2025-04-01T22:34:23.734Z\"\n    },\n    {\n        \"id\": \"d3e2b5d5-5e75-413f-8b51-c29d330ab6fd\",\n        \"event_id\": \"06393b6e-ef4b-462a-a06e-c6feade1b2f7\",\n        \"user_id\": \"da1f7bbd-5187-46ec-85dc-1fabffd663a8\",\n        \"status\": \"confirmed\",\n        \"payment_details\": {\n            \"card\": \"****-****-****-4378\"\n        },\n        \"created_at\": \"2025-04-01T22:36:39.907Z\",\n        \"updated_at\": \"2025-04-01T22:36:39.907Z\"\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	]
+}

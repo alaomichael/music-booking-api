@@ -24,6 +24,7 @@ exports.getEvents = async (req, res) => {
         const events = await EventService.getEvents();
         res.status(200).json(events);
     } catch (error) {
+        console.log("Error ", error)
         res.status(500).json({ error: 'Failed to retrieve events' });
     }
 };
