@@ -12,14 +12,7 @@ const auth = require('./middleware/auth');
 app.use(cors());
 app.use(express.json());
 
-// Public routes
 app.use('/api/users', userRoutes); // No auth for /register and /login
-
-// // Protected routes
-// app.use('/api/artists', auth, artistRoutes);
-// app.use('/api/events', auth, eventRoutes);
-// app.use('/api/bookings', auth, bookingRoutes);
-
 app.use('/api/artists', artistRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/bookings', bookingRoutes);

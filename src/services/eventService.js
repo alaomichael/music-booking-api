@@ -13,7 +13,7 @@ class EventService {
 
     static async getEvents() {
         const result = await Event.findAll();
-        console.log("Result ", result);
+        // console.log("Result ", result);
         // Convert ticket_price to a number for all events
         return result.map(event => ({
             ...event,
